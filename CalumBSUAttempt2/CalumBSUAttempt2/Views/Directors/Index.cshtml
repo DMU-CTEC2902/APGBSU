@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CalumBSUAttempt2.Models.Director>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+               Directors
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+
+            <td>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <a data-toggle="collapse" href="#directorInfo">@Html.DisplayFor(modelItem => item.DirectorName)</a>
+                        <div class="text-right">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.DirectorId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.DirectorId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.DirectorId })
+                        </div>
+                    </div>
+                    <div id="directorInfo" class="collapse">
+                        <div class="card-body">
+                            <img height=200 width=200 src=@Url.Content(item.DirectorImage) alt="C:\Users\User\source\repos\CalumBSUAttempt2\CalumBSUAttempt2\Images\people-default.jpg">
+                            <p><strong>Bio : </strong> @item.DirectorBio</p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

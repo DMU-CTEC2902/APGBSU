@@ -1,0 +1,65 @@
+﻿@model CalumBSUAttempt2.Models.Director
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Director</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <img height=400 width=400 src ="@Url.Content(Model.DirectorImage)" alt="C:\Users\User\source\repos\CalumBSUAttempt2\CalumBSUAttempt2\Images\people-default.jpg">
+            </dt>
+    
+            <dd>
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DirectorName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DirectorName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DirectorBio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DirectorBio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DirectorDOB)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DirectorDOB)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Rating)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Rating)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DirectorId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

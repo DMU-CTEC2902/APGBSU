@@ -1,0 +1,66 @@
+﻿@model CalumBSUAttempt2.Models.Actor
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Actor</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ActorImage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ActorImage)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ActorName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ActorName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ActorBio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ActorBio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ActorDOB)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ActorDOB)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Rating)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Rating)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ActorId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
