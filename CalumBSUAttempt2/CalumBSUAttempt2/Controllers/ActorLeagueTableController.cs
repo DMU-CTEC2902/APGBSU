@@ -13,8 +13,7 @@ namespace CalumBSUAttempt2.Controllers
     public class ActorLeagueTableController : Controller
     {
         private BSUMovieWebsiteContext db = new BSUMovieWebsiteContext();
-
-        // GET: FilmLeagueTable
+        // GET: ActorLeagueTable
         public ActionResult Index(string sort)
         {
             if (String.IsNullOrEmpty(sort))
@@ -40,8 +39,8 @@ namespace CalumBSUAttempt2.Controllers
             return View(actors.ToList());
         }
 
-            // GET: ActorLeagueTable/Details/5
-            public ActionResult Details(int? id)
+        // GET: ActorLeagueTable/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
