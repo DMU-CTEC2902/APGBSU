@@ -31,9 +31,19 @@
     
     @foreach (var item in Model) {
        <tr>
-            <td>
-                <img height=200 width=200 src=@Url.Content(item.FilmImage) alt="http://www.santelenaservice.it/wp-content/uploads/2016/03/default-person.jpg">
-            </td>
+           <td>
+               @{
+                   if (item.FilmImage != null)
+                   {
+                       <img height=100 width=100 src=@Url.Content(item.FilmImage) alt="Image">
+                   }
+                   else
+                   {
+                       <img height=100 width=100 src="https://app.reklist.com/assets/img/avatars/movie-poster-001.png" alt="Default Image">
+                   }
+               }
+
+           </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FilmName)
             </td>
