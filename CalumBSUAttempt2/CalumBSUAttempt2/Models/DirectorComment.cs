@@ -11,5 +11,6 @@ namespace CalumBSUAttempt2.Models
         public virtual int DirectorId { get; set; }
         public virtual string Comment { get; set; }
         public virtual Director Director { get; set; }
+        public virtual string User { get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace CalumBSUAttempt2.Models
         public virtual string ActorBio { get; set; }
         public virtual DateTime ActorDOB { get; set; }
         public virtual decimal Rating { get; set; }
+        public virtual string User { get; set; }
     }
 }

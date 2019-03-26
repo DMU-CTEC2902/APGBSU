@@ -10,6 +10,7 @@ namespace CalumBSUAttempt2.Models
     {
         protected override void Seed(BSUMovieWebsiteContext context)
         {
+            /*
             Genre genre1 = new Genre();
             genre1.GenreId = 1;
             genre1.GenreName = "Comedy";
@@ -35,6 +36,7 @@ namespace CalumBSUAttempt2.Models
             dir2.DirectorDOB = new DateTime(3 / 3 / 1900);
 
             base.Seed(context);
+            */
         }
     }
 }

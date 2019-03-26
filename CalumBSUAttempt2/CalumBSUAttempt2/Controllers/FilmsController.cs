@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CalumBSUAttempt2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CalumBSUAttempt2.Controllers
 {
@@ -17,6 +18,7 @@ namespace CalumBSUAttempt2.Controllers
         // GET: Films
         public ActionResult Index()
         {
+            ViewBag.userId = User.Identity.GetUserId();
             var films = db.Films.Include(f => f.Genre);
             return View(films.ToList());
         }
@@ -52,6 +54,7 @@ namespace CalumBSUAttempt2.Controllers
         {
             if (ModelState.IsValid)
             {
+                film.User = User.Identity.GetUserId();
                 db.Films.Add(film);
                 db.SaveChanges();
                 return RedirectToAction("Index");
