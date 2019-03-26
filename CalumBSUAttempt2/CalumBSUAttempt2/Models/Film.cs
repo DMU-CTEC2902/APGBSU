@@ -16,5 +16,6 @@ namespace CalumBSUAttempt2.Models
         public virtual int FilmLength { get; set; }
         public virtual int GenreId { get; set; }
         public virtual Genre Genre { get; set; }
+        public virtual string User { get; set; }
     }
 }

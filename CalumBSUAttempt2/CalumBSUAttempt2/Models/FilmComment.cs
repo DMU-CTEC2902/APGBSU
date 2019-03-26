@@ -11,5 +11,6 @@ namespace CalumBSUAttempt2.Models
         public virtual int FilmId { get; set; }
         public virtual string Comment { get; set; }
         public virtual Film Film { get; set; }
+        public virtual string User { get; set; }
     }
 }

@@ -11,5 +11,6 @@ namespace CalumBSUAttempt2.Models
         public virtual int ActorId { get; set; }
         public virtual string Comment { get; set; }
         public virtual Actor Actor { get; set; }
+        public virtual string User { get; set; }
     }
 }
