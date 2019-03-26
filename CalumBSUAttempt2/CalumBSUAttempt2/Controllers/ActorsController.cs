@@ -17,6 +17,7 @@ namespace CalumBSUAttempt2.Controllers
         // GET: Actors
         public ActionResult Index()
         {
+            viewbag.userid = User.Identity.GetUserId();
             return View(db.Actors.ToList());
         }
 
@@ -50,6 +51,7 @@ namespace CalumBSUAttempt2.Controllers
         {
             if (ModelState.IsValid)
             {
+                actor.User = User.Identity.GetUserId();
                 db.Actors.Add(actor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
