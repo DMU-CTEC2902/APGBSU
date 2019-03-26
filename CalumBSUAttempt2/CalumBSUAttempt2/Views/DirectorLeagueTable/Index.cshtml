@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CalumBSUAttempt2.Models.Director>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,7 +13,6 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
@@ -24,10 +23,7 @@
                 @Html.DisplayNameFor(model => model.DirectorName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DirectorBio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
+                @Html.ActionLink("Rating", "Index", new { sort = ViewBag.RatingSortPar })
             </th>
             <th></th>
         </tr>
@@ -35,21 +31,25 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DirectorImage)
+                @{
+                    if (item.DirectorImage != null)
+                    {
+                        <img height=100 width=100 src=@Url.Content(item.DirectorImage) alt="Image">
+                    }
+                    else
+                    {
+                        <img height=100 width=100 src="https://app.reklist.com/assets/img/avatars/movie-poster-001.png" alt="Default Image">
+                    }
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DirectorName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DirectorBio)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.DirectorId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.DirectorId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.DirectorId })
+                @Html.ActionLink("Details", "Details", new { id=item.DirectorId }) 
             </td>
         </tr>
     }
