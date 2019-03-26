@@ -13,7 +13,13 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @{
+            if (ViewBag.userId != null)
+            {
+                @Html.ActionLink("Create New", "Create")
+            }
+        }
+
     </p>
     <table class="table">
         <tr>
