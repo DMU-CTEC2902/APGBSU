@@ -26,5 +26,11 @@ namespace CalumBSUAttempt2.Models
         public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.Actor> Actors { get; set; }
 
         public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.Director> Directors { get; set; }
+
+        public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.Discussion> Discussions { get; set; }
+
+        public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.DiscussionInfo> DiscussionInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.News> News { get; set; }
     }
 }

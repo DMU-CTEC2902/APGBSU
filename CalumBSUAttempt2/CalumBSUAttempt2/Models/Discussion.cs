@@ -5,10 +5,10 @@ using System.Web;
 
 namespace CalumBSUAttempt2.Models
 {
-    public class Genre
+    public class Discussion
     {
-        public virtual int GenreId { get; set; }
-        public virtual string GenreName { get; set; }
+        public virtual int DiscussionId { get; set; }
+        public virtual string Name { get; set; }
         public virtual string User { get; set; }
     }
 }

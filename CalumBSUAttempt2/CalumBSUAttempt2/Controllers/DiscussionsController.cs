@@ -7,113 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CalumBSUAttempt2.Models;
-using Microsoft.AspNet.Identity;
 
 namespace CalumBSUAttempt2.Controllers
 {
-    public class GenresController : Controller
+    public class DiscussionsController : Controller
     {
         private BSUMovieWebsiteContext db = new BSUMovieWebsiteContext();
 
-        // GET: Genres
+        // GET: Discussions
         public ActionResult Index()
         {
-            ViewBag.userId = User.Identity.GetUserId();
-            return View(db.Genres.ToList());
+            return View(db.Discussions.ToList());
         }
 
-        // GET: Genres/Details/5
+        // GET: Discussions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            Discussion discussion = db.Discussions.Find(id);
+            if (discussion == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(discussion);
         }
 
-        // GET: Genres/Create
+        // GET: Discussions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Genres/Create
+        // POST: Discussions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GenreId,GenreName")] Genre genre)
+        public ActionResult Create([Bind(Include = "DiscussionId,Name,User")] Discussion discussion)
         {
             if (ModelState.IsValid)
             {
-                genre.User = User.Identity.GetUserId();
-                db.Genres.Add(genre);
+                db.Discussions.Add(discussion);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(genre);
+            return View(discussion);
         }
 
-        // GET: Genres/Edit/5
+        // GET: Discussions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            Discussion discussion = db.Discussions.Find(id);
+            if (discussion == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(discussion);
         }
 
-        // POST: Genres/Edit/5
+        // POST: Discussions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GenreId,GenreName")] Genre genre)
+        public ActionResult Edit([Bind(Include = "DiscussionId,Name,User")] Discussion discussion)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(genre).State = EntityState.Modified;
+                db.Entry(discussion).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(genre);
+            return View(discussion);
         }
 
-        // GET: Genres/Delete/5
+        // GET: Discussions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            Discussion discussion = db.Discussions.Find(id);
+            if (discussion == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(discussion);
         }
 
-        // POST: Genres/Delete/5
+        // POST: Discussions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Genre genre = db.Genres.Find(id);
-            db.Genres.Remove(genre);
+            Discussion discussion = db.Discussions.Find(id);
+            db.Discussions.Remove(discussion);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

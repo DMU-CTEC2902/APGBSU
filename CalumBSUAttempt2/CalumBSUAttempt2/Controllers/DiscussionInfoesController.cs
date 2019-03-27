@@ -7,113 +7,115 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CalumBSUAttempt2.Models;
-using Microsoft.AspNet.Identity;
 
 namespace CalumBSUAttempt2.Controllers
 {
-    public class GenresController : Controller
+    public class DiscussionInfoesController : Controller
     {
         private BSUMovieWebsiteContext db = new BSUMovieWebsiteContext();
 
-        // GET: Genres
+        // GET: DiscussionInfoes
         public ActionResult Index()
         {
-            ViewBag.userId = User.Identity.GetUserId();
-            return View(db.Genres.ToList());
+            var discussionInfoes = db.DiscussionInfoes.Include(d => d.Discussion);
+            return View(discussionInfoes.ToList());
         }
 
-        // GET: Genres/Details/5
+        // GET: DiscussionInfoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            DiscussionInfo discussionInfo = db.DiscussionInfoes.Find(id);
+            if (discussionInfo == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(discussionInfo);
         }
 
-        // GET: Genres/Create
+        // GET: DiscussionInfoes/Create
         public ActionResult Create()
         {
+            ViewBag.DiscussionId = new SelectList(db.Discussions, "DiscussionId", "Name");
             return View();
         }
 
-        // POST: Genres/Create
+        // POST: DiscussionInfoes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GenreId,GenreName")] Genre genre)
+        public ActionResult Create([Bind(Include = "DiscussionInfoId,Message,DiscussionId,User")] DiscussionInfo discussionInfo)
         {
             if (ModelState.IsValid)
             {
-                genre.User = User.Identity.GetUserId();
-                db.Genres.Add(genre);
+                db.DiscussionInfoes.Add(discussionInfo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(genre);
+            ViewBag.DiscussionId = new SelectList(db.Discussions, "DiscussionId", "Name", discussionInfo.DiscussionId);
+            return View(discussionInfo);
         }
 
-        // GET: Genres/Edit/5
+        // GET: DiscussionInfoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            DiscussionInfo discussionInfo = db.DiscussionInfoes.Find(id);
+            if (discussionInfo == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            ViewBag.DiscussionId = new SelectList(db.Discussions, "DiscussionId", "Name", discussionInfo.DiscussionId);
+            return View(discussionInfo);
         }
 
-        // POST: Genres/Edit/5
+        // POST: DiscussionInfoes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GenreId,GenreName")] Genre genre)
+        public ActionResult Edit([Bind(Include = "DiscussionInfoId,Message,DiscussionId,User")] DiscussionInfo discussionInfo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(genre).State = EntityState.Modified;
+                db.Entry(discussionInfo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(genre);
+            ViewBag.DiscussionId = new SelectList(db.Discussions, "DiscussionId", "Name", discussionInfo.DiscussionId);
+            return View(discussionInfo);
         }
 
-        // GET: Genres/Delete/5
+        // GET: DiscussionInfoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            DiscussionInfo discussionInfo = db.DiscussionInfoes.Find(id);
+            if (discussionInfo == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(discussionInfo);
         }
 
-        // POST: Genres/Delete/5
+        // POST: DiscussionInfoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Genre genre = db.Genres.Find(id);
-            db.Genres.Remove(genre);
+            DiscussionInfo discussionInfo = db.DiscussionInfoes.Find(id);
+            db.DiscussionInfoes.Remove(discussionInfo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
