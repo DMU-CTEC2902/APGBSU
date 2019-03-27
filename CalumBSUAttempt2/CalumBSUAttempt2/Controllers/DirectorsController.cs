@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CalumBSUAttempt2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CalumBSUAttempt2.Controllers
 {
@@ -17,7 +18,7 @@ namespace CalumBSUAttempt2.Controllers
         // GET: Directors
         public ActionResult Index()
         {
-            viewbag.userid = User.Identity.GetUserId();
+            ViewBag.userid = User.Identity.GetUserId();
             return View(db.Directors.ToList());
         }
 
