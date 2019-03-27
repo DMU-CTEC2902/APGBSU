@@ -91,7 +91,7 @@
   <ItemGroup>
     <Compile Include="Controllers\ActorControllerTest.cs" />
     <Compile Include="Controllers\FilmControllerTest.cs" />
-    <Compile Include="DirectorControllerTest.cs" />
+    <Compile Include="Controllers\DirectorControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
