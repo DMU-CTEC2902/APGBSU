@@ -44,7 +44,15 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                <img height=200 width=200 src=@Url.Content(item.ActorImage) alt="http://www.santelenaservice.it/wp-content/uploads/2016/03/default-person.jpg">
+                @{ if (item.ActorImage != null)
+                    {
+                        <img height=100 width=100 src=@Url.Content(item.ActorImage) alt="Image">
+                    }
+                    else
+                    {
+                        <img height=100 width=100 src="https://dryicons.com/icon/person-avatar-icon-9872" alt="Default Image">
+                    }
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ActorName)
