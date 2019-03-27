@@ -201,11 +201,14 @@
     <Compile Include="Controllers\ActorsController.cs" />
     <Compile Include="Controllers\DirectorLeagueTableController.cs" />
     <Compile Include="Controllers\DirectorsController.cs" />
+    <Compile Include="Controllers\DiscussionInfoesController.cs" />
+    <Compile Include="Controllers\DiscussionsController.cs" />
     <Compile Include="Controllers\FilmLeagueTableController.cs" />
     <Compile Include="Controllers\FilmsController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +224,14 @@
     <Compile Include="Migrations\201903261119330_AddUserToEveryTable.Designer.cs">
       <DependentUpon>201903261119330_AddUserToEveryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903271527414_AddUserToGenre.cs" />
+    <Compile Include="Migrations\201903271527414_AddUserToGenre.Designer.cs">
+      <DependentUpon>201903271527414_AddUserToGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903271559314_DiscussionAndNews.cs" />
+    <Compile Include="Migrations\201903271559314_DiscussionAndNews.Designer.cs">
+      <DependentUpon>201903271559314_DiscussionAndNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -228,12 +239,15 @@
     <Compile Include="Models\BSUMovieWebsiteContext.cs" />
     <Compile Include="Models\Director.cs" />
     <Compile Include="Models\DirectorComment.cs" />
+    <Compile Include="Models\Discussion.cs" />
+    <Compile Include="Models\DiscussionInfo.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\FilmComment.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MovieWebsiteDataInitialiser.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -368,6 +382,21 @@
     <Content Include="Views\DirectorLeagueTable\Details.cshtml" />
     <Content Include="Views\DirectorLeagueTable\Edit.cshtml" />
     <Content Include="Views\DirectorLeagueTable\Index.cshtml" />
+    <Content Include="Views\Discussions\Create.cshtml" />
+    <Content Include="Views\Discussions\Delete.cshtml" />
+    <Content Include="Views\Discussions\Details.cshtml" />
+    <Content Include="Views\Discussions\Edit.cshtml" />
+    <Content Include="Views\Discussions\Index.cshtml" />
+    <Content Include="Views\DiscussionInfoes\Create.cshtml" />
+    <Content Include="Views\DiscussionInfoes\Delete.cshtml" />
+    <Content Include="Views\DiscussionInfoes\Details.cshtml" />
+    <Content Include="Views\DiscussionInfoes\Edit.cshtml" />
+    <Content Include="Views\DiscussionInfoes\Index.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,6 +415,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903261119330_AddUserToEveryTable.resx">
       <DependentUpon>201903261119330_AddUserToEveryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903271527414_AddUserToGenre.resx">
+      <DependentUpon>201903271527414_AddUserToGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903271559314_DiscussionAndNews.resx">
+      <DependentUpon>201903271559314_DiscussionAndNews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
