@@ -13,7 +13,12 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @{
+            if (ViewBag.userId != null)
+            {
+                @Html.ActionLink("Create New", "Create")
+            }
+        }
     </p>
     <table class="table">
         <tr>
@@ -29,9 +34,15 @@
                 @Html.DisplayFor(modelItem => item.GenreName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.GenreId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.GenreId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.GenreId })
+                @Html.ActionLink("Details", "Details", new { id = item.GenreId })
+                @{
+                    if (ViewBag.userId == item.User)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GenreId });
+                                @Html.ActionLink("Delete", "Delete", new { id = item.GenreId });
+                            }
+                        }
+
             </td>
         </tr>
     }

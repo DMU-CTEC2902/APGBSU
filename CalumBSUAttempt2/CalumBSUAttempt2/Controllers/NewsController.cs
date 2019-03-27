@@ -7,113 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CalumBSUAttempt2.Models;
-using Microsoft.AspNet.Identity;
 
 namespace CalumBSUAttempt2.Controllers
 {
-    public class GenresController : Controller
+    public class NewsController : Controller
     {
         private BSUMovieWebsiteContext db = new BSUMovieWebsiteContext();
 
-        // GET: Genres
+        // GET: News
         public ActionResult Index()
         {
-            ViewBag.userId = User.Identity.GetUserId();
-            return View(db.Genres.ToList());
+            return View(db.News.ToList());
         }
 
-        // GET: Genres/Details/5
+        // GET: News/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            News news = db.News.Find(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(news);
         }
 
-        // GET: Genres/Create
+        // GET: News/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Genres/Create
+        // POST: News/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GenreId,GenreName")] Genre genre)
+        public ActionResult Create([Bind(Include = "NewsId,Headline,BodyText,User")] News news)
         {
             if (ModelState.IsValid)
             {
-                genre.User = User.Identity.GetUserId();
-                db.Genres.Add(genre);
+                db.News.Add(news);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(genre);
+            return View(news);
         }
 
-        // GET: Genres/Edit/5
+        // GET: News/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            News news = db.News.Find(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(news);
         }
 
-        // POST: Genres/Edit/5
+        // POST: News/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GenreId,GenreName")] Genre genre)
+        public ActionResult Edit([Bind(Include = "NewsId,Headline,BodyText,User")] News news)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(genre).State = EntityState.Modified;
+                db.Entry(news).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(genre);
+            return View(news);
         }
 
-        // GET: Genres/Delete/5
+        // GET: News/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            News news = db.News.Find(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(news);
         }
 
-        // POST: Genres/Delete/5
+        // POST: News/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Genre genre = db.Genres.Find(id);
-            db.Genres.Remove(genre);
+            News news = db.News.Find(id);
+            db.News.Remove(news);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
