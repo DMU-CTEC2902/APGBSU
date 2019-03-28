@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-    @{ 
+    @{
         string first = "";
         DateTime firstDate = new DateTime(1 / 1 / 1500);
         string second = "";
@@ -22,14 +22,41 @@
         DateTime fourthDate = new DateTime(1 / 1 / 1500);
         string fifth = "";
         DateTime fifthDate = new DateTime(1 / 1 / 1500);
-        /*
+
         foreach (var item in Model)
         {
             if (item.ReleaseDate > firstDate)
             {
-               
+                first = item.FilmImage;
+                firstDate = item.ReleaseDate;
+            }
+            else if (item.ReleaseDate > secondDate)
+            {
+                second = item.FilmImage;
+                secondDate = item.ReleaseDate;
+            }
+            else if (item.ReleaseDate > thirdDate)
+            {
+                third = item.FilmImage;
+                thirdDate = item.ReleaseDate;
+            }
+            else if (item.ReleaseDate > fourthDate)
+            {
+                fourth = item.FilmImage;
+                fourthDate = item.ReleaseDate;
+            }
+            else if (item.ReleaseDate > fifthDate)
+            {
+                fifth = item.FilmImage;
+                fifthDate = item.ReleaseDate;
             }
         }
-        */
+
+        <img height=100 width=100 src=@first alt="Image">
+        <img height=100 width=100 src=@second alt="Image">
+        <img height=100 width=100 src=@third alt="Image">
+        <img height=100 width=100 src=@fourth alt="Image">
+        <img height=100 width=100 src=@fifth alt="Image">
+
     }
 </div>

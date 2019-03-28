@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CalumBSUAttempt2.Models.FilmComment>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FilmComment</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.FilmId == ViewBag.id)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.FilmCommentId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.FilmCommentId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.FilmCommentId })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</body>
+</html>

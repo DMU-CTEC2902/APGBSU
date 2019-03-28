@@ -13,7 +13,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Add Comment", "Create")
     </p>
     <table class="table">
         <tr>
@@ -22,9 +22,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Message)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
             </th>
             <th></th>
         </tr>
@@ -38,11 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Message)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User)
-            </td>
-            <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.DiscussionInfoId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.DiscussionInfoId }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.DiscussionInfoId })
             </td>
         </tr>
