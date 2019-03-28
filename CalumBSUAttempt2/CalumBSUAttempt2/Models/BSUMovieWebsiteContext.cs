@@ -32,5 +32,7 @@ namespace CalumBSUAttempt2.Models
         public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.DiscussionInfo> DiscussionInfoes { get; set; }
 
         public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.News> News { get; set; }
+
+        public System.Data.Entity.DbSet<CalumBSUAttempt2.Models.FilmComment> FilmComments { get; set; }
     }
 }

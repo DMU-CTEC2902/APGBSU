@@ -23,6 +23,13 @@ namespace CalumBSUAttempt2.Controllers
             return View(films.ToList());
         }
 
+        public ActionResult FilmComment(int? id)
+        {
+            ViewBag.filmId = id;
+            var filmComments = db.FilmComments.Include(f => f.Film);
+            return View(filmComments.ToList());
+        }
+
         // GET: Films/Details/5
         public ActionResult Details(int? id)
         {
