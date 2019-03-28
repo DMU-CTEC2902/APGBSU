@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201903281143277_hopefulFix.Designer.cs">
       <DependentUpon>201903281143277_hopefulFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903281232230_fix.cs" />
+    <Compile Include="Migrations\201903281232230_fix.Designer.cs">
+      <DependentUpon>201903281232230_fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -401,6 +405,7 @@
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Films\FilmComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -428,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903281143277_hopefulFix.resx">
       <DependentUpon>201903281143277_hopefulFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281232230_fix.resx">
+      <DependentUpon>201903281232230_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
