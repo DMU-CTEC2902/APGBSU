@@ -57,7 +57,7 @@ namespace CalumBSUAttempt2.Migrations
               );
 
             context.News.AddOrUpdate(news => news.NewsId,
-              new News() { NewsId = 1, Date = new DateTime(27/03/2019), Headline = "End Game Spoilers!", BodyText = "Ant Man Defeates Thanos by shrinkings and *****", User = "rhys cruz"}
+              new News() { NewsId = 1, Date = new DateTime(27/03/2019), Headline = "End Game Spoilers!", BodyText = "Ant Man Defeates Thanos by shrinkings and *****", User = "calum ewart"}
 
               );
         }
