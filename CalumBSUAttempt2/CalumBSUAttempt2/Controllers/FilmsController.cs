@@ -30,6 +30,8 @@ namespace CalumBSUAttempt2.Controllers
             return View(filmComments.ToList());
         }
 
+
+
         // GET: Films/Details/5
         public ActionResult Details(int? id)
         {
@@ -44,6 +46,7 @@ namespace CalumBSUAttempt2.Controllers
             }
             return View(film);
         }
+
 
         // GET: Films/Create
         public ActionResult Create()
@@ -69,6 +72,31 @@ namespace CalumBSUAttempt2.Controllers
 
             ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "GenreName", film.GenreId);
             return View(film);
+        }
+
+        // GET: FilmComments/Create
+        public ActionResult CommentCreate()
+        {
+            ViewBag.FilmId = new SelectList(db.Films, "FilmId", "FilmImage");
+            return View();
+        }
+
+        // POST: FilmComments/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CommentCreate([Bind(Include = "FilmCommentId,FilmId,Comment,User")] FilmComment filmComment)
+        {
+            if (ModelState.IsValid)
+            {
+                db.FilmComments.Add(filmComment);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.FilmId = new SelectList(db.Films, "FilmId", "FilmImage", filmComment.FilmId);
+            return View(filmComment);
         }
 
         // GET: Films/Edit/5
@@ -104,6 +132,39 @@ namespace CalumBSUAttempt2.Controllers
             return View(film);
         }
 
+        // GET: FilmComments/Edit/5
+        public ActionResult CommentEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            FilmComment filmComment = db.FilmComments.Find(id);
+            if (filmComment == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.FilmId = new SelectList(db.Films, "FilmId", "FilmImage", filmComment.FilmId);
+            return View(filmComment);
+        }
+
+        // POST: FilmComments/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CommentEdit([Bind(Include = "FilmCommentId,FilmId,Comment,User")] FilmComment filmComment)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(filmComment).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.FilmId = new SelectList(db.Films, "FilmId", "FilmImage", filmComment.FilmId);
+            return View(filmComment);
+        }
+
         // GET: Films/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -126,6 +187,32 @@ namespace CalumBSUAttempt2.Controllers
         {
             Film film = db.Films.Find(id);
             db.Films.Remove(film);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        // GET: FilmComments/Delete/5
+        public ActionResult CommentDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            FilmComment filmComment = db.FilmComments.Find(id);
+            if (filmComment == null)
+            {
+                return HttpNotFound();
+            }
+            return View(filmComment);
+        }
+
+        // POST: FilmComments/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult CommentDeleteConfirmed(int id)
+        {
+            FilmComment filmComment = db.FilmComments.Find(id);
+            db.FilmComments.Remove(filmComment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

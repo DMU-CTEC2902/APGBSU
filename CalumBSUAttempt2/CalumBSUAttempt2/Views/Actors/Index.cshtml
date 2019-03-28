@@ -45,6 +45,7 @@
         <tr>
             <td>
                 @{ if (item.ActorImage != null)
+                        //if the actor image is left blank then display the default
                     {
                         <img height=100 width=100 src=@Url.Content(item.ActorImage) alt="Image">
                     }

@@ -13,8 +13,9 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Add Comment", "CommentCreate")
     </p>
+
     <table class="table">
         <tr>
             <th>
@@ -25,16 +26,15 @@
 
         @foreach (var item in Model)
         {
-            if (item.FilmId == ViewBag.id)
+            if (item.FilmId == item.Film.FilmId)
             {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Comment)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.FilmCommentId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.FilmCommentId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.FilmCommentId })
+                        @Html.ActionLink("Edit", "CommentEdit", new { id = item.FilmCommentId }) |
+                        @Html.ActionLink("Delete", "CommentDelete", new { id = item.FilmCommentId })
                     </td>
                 </tr>
             }

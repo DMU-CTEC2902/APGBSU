@@ -203,6 +203,7 @@
     <Compile Include="Controllers\DirectorsController.cs" />
     <Compile Include="Controllers\DiscussionInfoesController.cs" />
     <Compile Include="Controllers\DiscussionsController.cs" />
+    <Compile Include="Controllers\FilmCommentsController.cs" />
     <Compile Include="Controllers\FilmLeagueTableController.cs" />
     <Compile Include="Controllers\FilmsController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
@@ -406,9 +407,13 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Films\FilmComment.cshtml" />
+    <Content Include="Views\Films\CommentCreate.cshtml" />
+    <Content Include="Views\Films\CommentEdit.cshtml" />
+    <Content Include="Views\Films\CommentDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FilmComments\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
